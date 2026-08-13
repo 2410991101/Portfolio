@@ -99,8 +99,11 @@ function Projects() {
             <span>JavaScript</span>
           </div>
 
-          <a href="#" className="project-link">
-            View project →
+          <a href="https://casadeamore.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link">
+              View project →
           </a>
 
         </div>
@@ -146,9 +149,12 @@ function Projects() {
             <span>EJS</span>
           </div>
 
-          <a href="#" className="project-link">
-            View project →
-          </a>
+          <a href="https://student-space-rho.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link">
+              View project →
+            </a>
 
         </div>
 
