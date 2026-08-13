@@ -1,0 +1,399 @@
+/* =========================================================
+   PROJECTS SECTION
+========================================================= */
+
+.projects-section {
+  min-height: 100vh;
+  padding: 140px 50px 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.projects-header {
+  max-width: 850px;
+  margin-bottom: 100px;
+
+  opacity: 0;
+  transform: translateY(35px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.projects-header.project-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.projects-number {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 35px;
+}
+
+.projects-number span,
+.projects-number strong {
+  color: var(--red);
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.projects-number strong {
+  font-weight: 500;
+}
+
+.projects-number i {
+  width: 30px;
+  height: 1px;
+  background: var(--red);
+}
+
+
+.projects-header h2 {
+  font-size: clamp(50px, 7vw, 90px);
+  line-height: 0.92;
+  letter-spacing: -5px;
+  font-weight: 600;
+  margin-bottom: 35px;
+}
+
+.projects-header h2 span {
+  color: var(--red);
+}
+
+
+.projects-header p {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROJECT ITEM
+========================================================= */
+
+.project-item {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 70px;
+  align-items: center;
+
+  padding: 80px 0;
+
+  border-top: 1px solid var(--border);
+
+  opacity: 0;
+  transform: translateY(45px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.project-item.project-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   ALTERNATING PROJECT LAYOUT
+========================================================= */
+
+.project-item.reverse {
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+.project-item.reverse .project-visual {
+  order: 2;
+}
+
+.project-item.reverse .project-info {
+  order: 1;
+}
+
+
+/* =========================================================
+   PROJECT IMAGE
+========================================================= */
+
+.project-visual {
+  height: 420px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  background: #f8efec;
+}
+
+
+/* Actual image */
+
+.project-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  display: block;
+}
+
+
+/* =========================================================
+   PROJECT 01 — CASA DE AMORE
+========================================================= */
+
+.project-item:first-of-type .project-image {
+  object-position: center;
+}
+
+
+/* =========================================================
+   PROJECT 02 — STUDENT SPACE
+========================================================= */
+
+.project-item.reverse .project-image {
+  object-position: center;
+}
+
+
+/* =========================================================
+   PROJECT INFO
+========================================================= */
+
+.project-info {
+  max-width: 450px;
+}
+
+.project-meta {
+  color: var(--red);
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 22px;
+}
+
+
+.project-info h3 {
+  font-size: clamp(34px, 4vw, 55px);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+  margin-bottom: 25px;
+
+  font-weight: 600;
+}
+
+
+.project-info p {
+  color: var(--muted);
+
+  font-size: 15px;
+
+  line-height: 1.75;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   TECHNOLOGIES
+========================================================= */
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-bottom: 30px;
+}
+
+
+.project-tech span {
+  padding: 7px 11px;
+
+  border: 1px solid var(--border);
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   PROJECT LINK
+========================================================= */
+
+.project-link {
+  display: inline-block;
+
+  color: var(--text);
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  padding-bottom: 5px;
+
+  border-bottom: 1px solid var(--text);
+}
+
+
+/* =========================================================
+   COMING SOON PROJECT
+========================================================= */
+
+.project-item:last-child .project-visual {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 70% 30%,
+      rgba(200, 92, 99, 0.12),
+      transparent 35%
+    ),
+    #f8efec;
+}
+
+
+.project-placeholder {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  color: var(--red);
+}
+
+
+.project-placeholder span {
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+
+.project-placeholder strong {
+  font-size: clamp(28px, 4vw, 55px);
+
+  letter-spacing: -2px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .projects-section {
+    padding: 100px 30px;
+  }
+
+
+  .project-item,
+  .project-item.reverse {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+
+  .project-item.reverse .project-visual,
+  .project-item.reverse .project-info {
+    order: unset;
+  }
+
+
+  .project-visual {
+    height: 350px;
+  }
+
+
+  .project-info {
+    max-width: 650px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .projects-section {
+    padding: 80px 22px;
+  }
+
+
+  .projects-header {
+    margin-bottom: 60px;
+  }
+
+
+  .projects-header h2 {
+    font-size: clamp(42px, 13vw, 65px);
+
+    letter-spacing: -3px;
+  }
+
+
+  .projects-header p {
+    font-size: 15px;
+  }
+
+
+  .project-item,
+  .project-item.reverse {
+    padding: 60px 0;
+
+    gap: 35px;
+  }
+
+
+  .project-visual {
+    height: 280px;
+  }
+
+
+  .project-info h3 {
+    font-size: 38px;
+  }
+
+
+  .project-info p {
+    font-size: 14px;
+  }
+
+}

@@ -1,0 +1,762 @@
+/* =========================================================
+   SKILLS SECTION
+========================================================= */
+
+.skills-section {
+  min-height: 100vh;
+  padding: 110px 6vw;
+
+  position: relative;
+  overflow: hidden;
+
+  background: var(--background);
+}
+
+
+/* =========================================================
+   SUBTLE GRID
+========================================================= */
+
+.skills-section::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(200, 92, 99, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(200, 92, 99, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.skills-heading {
+  position: relative;
+
+  z-index: 10;
+
+  margin-bottom: 35px;
+}
+
+.skills-heading span {
+  color: var(--red);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+.skills-heading h2 {
+  margin-top: 14px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(42px, 5vw, 70px);
+
+  line-height: 0.95;
+
+  letter-spacing: -3px;
+
+  font-weight: 500;
+
+  color: var(--text);
+}
+
+
+/* =========================================================
+   ORBIT AREA
+========================================================= */
+
+.skills-orbit {
+  width: min(1100px, 90vw);
+
+  height: 620px;
+
+  margin: 10px auto 0;
+
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   CENTER FULL STACK
+========================================================= */
+
+.skills-center {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 210px;
+  height: 210px;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.8);
+
+  border: 1px solid var(--red);
+
+  border-radius: 50%;
+
+  background: rgba(255, 250, 248, 0.96);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 6;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+
+/* Center appears when section enters */
+
+.skills-visible .skills-center {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+}
+
+
+/* =========================================================
+   CENTER DOT
+========================================================= */
+
+.center-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--red);
+
+  margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   CENTER TEXT
+========================================================= */
+
+.skills-center h3 {
+  margin: 0;
+
+  font-size: 20px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  color: var(--text);
+}
+
+.skills-center span {
+  margin-top: 8px;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   CONNECTING LINES
+========================================================= */
+
+.orbit-line {
+  position: absolute;
+
+  height: 1px;
+
+  width: 0;
+
+  background: var(--red);
+
+  opacity: 0;
+
+  transform-origin: left center;
+
+  z-index: 2;
+
+  transition:
+    width 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.2s ease;
+}
+
+
+/* =========================================================
+   LINE POSITIONS
+========================================================= */
+
+
+/* Top left */
+
+.line-one {
+  left: 43%;
+  top: 43%;
+
+  transform: rotate(-145deg);
+
+  transition-delay: 0.05s;
+}
+
+
+/* Top right */
+
+.line-two {
+  left: 57%;
+  top: 43%;
+
+  transform: rotate(-35deg);
+
+  transition-delay: 0.15s;
+}
+
+
+/* Left */
+
+.line-three {
+  left: 41%;
+  top: 50%;
+
+  transform: rotate(180deg);
+
+  transition-delay: 0.25s;
+}
+
+
+/* Right */
+
+.line-four {
+  left: 59%;
+  top: 50%;
+
+  transform: rotate(0deg);
+
+  transition-delay: 0.35s;
+}
+
+
+/* Bottom */
+
+.line-five {
+  left: 50%;
+  top: 59%;
+
+  transform: rotate(90deg);
+
+  transition-delay: 0.45s;
+}
+
+
+/* =========================================================
+   LINE ANIMATION
+========================================================= */
+
+.skills-visible .orbit-line {
+  width: 145px;
+
+  opacity: 0.35;
+}
+
+
+/* =========================================================
+   SKILL CARDS
+========================================================= */
+
+.skill-card {
+  position: absolute;
+
+  min-width: 220px;
+
+  padding: 18px 22px;
+
+  background: rgba(255, 250, 248, 0.94);
+
+  border: 1px solid rgba(200, 92, 99, 0.22);
+
+  backdrop-filter: blur(8px);
+
+  z-index: 5;
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  /*
+     IMPORTANT:
+     This transition is ONLY for the
+     entrance + card hover.
+  */
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.3s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+/* =========================================================
+   CARD POSITIONS
+========================================================= */
+
+
+/* Frontend */
+
+.skill-frontend {
+  top: 30px;
+
+  left: 30px;
+
+  transition-delay: 0.55s;
+}
+
+
+/* Backend */
+
+.skill-backend {
+  top: 30px;
+
+  right: 30px;
+
+  transition-delay: 0.65s;
+}
+
+
+/* Database */
+
+.skill-database {
+  top: 270px;
+
+  left: 0;
+
+  transition-delay: 0.75s;
+}
+
+
+/* Languages */
+
+.skill-languages {
+  top: 270px;
+
+  right: 0;
+
+  transition-delay: 0.85s;
+}
+
+
+/* Tools */
+
+.skill-tools {
+  bottom: 5px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    translateY(20px);
+
+  transition-delay: 0.95s;
+}
+
+
+/* =========================================================
+   CARD REVEAL
+========================================================= */
+
+.skills-visible .skill-card {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* Keep Tools centered */
+
+.skills-visible .skill-tools {
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.skill-card-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* Number */
+
+.skill-card-title small {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(200, 92, 99, 0.45);
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: var(--red);
+
+  font-size: 9px;
+
+  letter-spacing: 0;
+
+  transition:
+    background 0.1s ease,
+    border-color 0.1s ease,
+    color 0.1s ease;
+}
+
+
+/* Category name */
+
+.skill-card-title h3 {
+  margin: 0;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: var(--text);
+
+  /*
+     IMPORTANT:
+     Almost instant color change.
+  */
+
+  transition: color 0.05s linear;
+}
+
+
+/* =========================================================
+   INDIVIDUAL SKILLS
+========================================================= */
+
+.skill-items {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-top: 15px;
+}
+
+
+/* Individual skill */
+
+.skill-items span {
+  padding: 6px 9px;
+
+  border: 1px solid rgba(23, 19, 19, 0.12);
+
+  background: rgba(255, 255, 255, 0.45);
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  letter-spacing: 0.5px;
+
+  transition:
+    color 0.1s ease,
+    border-color 0.1s ease;
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+/*
+   CATEGORY IMMEDIATELY TURNS RED
+*/
+
+.skill-card:hover .skill-card-title h3 {
+  color: var(--red);
+}
+
+
+/*
+   NUMBER CIRCLE ALSO TURNS RED
+*/
+
+.skill-card:hover .skill-card-title small {
+  background: var(--red);
+
+  border-color: var(--red);
+
+  color: white;
+}
+
+
+/*
+   SKILLS UNDERNEATH BECOME DARKER
+*/
+
+.skill-card:hover .skill-items span {
+  color: var(--text);
+
+  border-color: rgba(200, 92, 99, 0.28);
+}
+
+
+/*
+   CARD ITSELF
+*/
+
+.skill-card:hover {
+  border-color: var(--red);
+
+  box-shadow:
+    0 12px 30px rgba(200, 92, 99, 0.10);
+
+  transform: translateY(-5px);
+}
+
+
+/*
+   Tools card needs horizontal centering
+*/
+
+.skill-tools:hover {
+  transform:
+    translateX(-50%)
+    translateY(-5px);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .skills-section {
+    min-height: auto;
+
+    padding:
+      80px 22px
+      100px;
+  }
+
+
+  /* Heading */
+
+  .skills-heading h2 {
+    font-size: 48px;
+
+    letter-spacing: -2px;
+  }
+
+
+  /* Orbit becomes vertical */
+
+  .skills-orbit {
+    width: 100%;
+
+    height: auto;
+
+    margin-top: 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 18px;
+  }
+
+
+  /* Center */
+
+  .skills-center {
+    position: relative;
+
+    left: auto;
+    top: auto;
+
+    width: 170px;
+    height: 170px;
+
+    margin:
+      0 auto
+      35px;
+
+    transform: scale(0.8);
+  }
+
+
+  .skills-visible .skills-center {
+    transform: scale(1);
+  }
+
+
+  .skills-center h3 {
+    font-size: 16px;
+  }
+
+
+  /* Hide connecting lines on mobile */
+
+  .orbit-line {
+    display: none;
+  }
+
+
+  /* Cards */
+
+  .skill-card,
+  .skill-frontend,
+  .skill-backend,
+  .skill-database,
+  .skill-languages,
+  .skill-tools {
+
+    position: relative;
+
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    width: 100%;
+
+    min-width: 0;
+
+    transform: translateY(20px);
+  }
+
+
+  /* Reveal */
+
+  .skills-visible .skill-card,
+  .skills-visible .skill-tools {
+
+    transform: translateY(0);
+  }
+
+
+  /* Mobile hover */
+
+  .skill-card:hover,
+  .skill-tools:hover {
+
+    transform: translateY(-4px);
+  }
+
+
+  /* Entrance delays */
+
+  .skill-frontend {
+    transition-delay: 0.5s;
+  }
+
+  .skill-backend {
+    transition-delay: 0.6s;
+  }
+
+  .skill-database {
+    transition-delay: 0.7s;
+  }
+
+  .skill-languages {
+    transition-delay: 0.8s;
+  }
+
+  .skill-tools {
+    transition-delay: 0.9s;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .skills-section {
+    padding-left: 18px;
+
+    padding-right: 18px;
+  }
+
+
+  .skills-heading h2 {
+    font-size: 42px;
+  }
+
+
+  .skill-card {
+    padding: 16px;
+  }
+
+
+  .skill-card-title h3 {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .skill-items span {
+    font-size: 9px;
+  }
+}

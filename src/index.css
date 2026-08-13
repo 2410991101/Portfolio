@@ -1,0 +1,27 @@
+:root {
+  --background: #fffaf8;
+  --text: #171313;
+  --muted: #746b6b;
+
+  --red: #c85c63;
+  --red-dark: #9f3d46;
+  --light-red: #f3d9d9;
+
+  --border: rgba(200, 92, 99, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
