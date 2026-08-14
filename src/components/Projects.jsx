@@ -99,7 +99,7 @@ function Projects() {
             <span>JavaScript</span>
           </div>
 
-          <a href="https://casadeamore.vercel.app/"
+          <a href="https://casa-de-amore.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="project-link">
