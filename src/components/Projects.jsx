@@ -149,7 +149,7 @@ function Projects() {
             <span>EJS</span>
           </div>
 
-          <a href="https://student-space-rho.vercel.app/"
+          <a href="https://student-space-jaisvin.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="project-link">
